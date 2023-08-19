@@ -16,6 +16,9 @@
     <label for="nom">Nom :  </label> <br>
     <input type="text" name="nom" />  <br>
 
+    <label for="prenom">Prenom :  </label> <br>
+    <input type="text" name="prenom" />  <br>
+
     <label for="mail">Mail :  </label> <br>
     <input type="text" name="mail" /> <br>
 

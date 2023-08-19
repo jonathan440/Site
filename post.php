@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,6 +19,7 @@
         la valeur des attributs name comme clé 
        */
      $nom = $_POST['nom']; 
+     $prenom = $_POST['prenom'];
      $mail = $_POST['mail'];
      $maison = $_POST['choix'];
 
@@ -27,7 +28,7 @@
     {
       $bdd = new PDO('mysql:host=localhost;dbname=formulaire;charset=utf8', 'root', '');
       // insertion
-      $sql = "INSERT INTO users(nom,mail,maison,resultat) VALUES ('$nom','$mail','$maison',0)";
+      $sql = "INSERT INTO users(nom,prenom,mail,maison,resultat) VALUES ('$nom','$prenom','$mail','$maison',0)";
       $bdd ->exec($sql);
     }
     catch(Exception $e)
@@ -43,35 +44,41 @@
   }
 ?>
 
-<p>Bonjour <?php echo $nom  ?>  de la maison  <?php  echo $maison  ?>   </p>
+<p>Bonjour <?php echo $prenom  ?>  de la maison  <?php  echo $maison  ?>   </p>
 
 <h2>Les questions</h2>
 
 <form action="res.php" method="post">
 
 
-  <label for="question">Question 1 ? </label> <br>
+  <label for="question">Comment se nomme le sort permettant de transformer un animal en verre à pied ? </label> <br>
 
-  <input type="radio" name ='Q1' value="reponse1">
-  <label for="r"></label> r1 <br>
+  <input type="checkbox" name ='Q1[]' value="ok">
+  <label for="r"></label> Vera Verto <br>
 
-  <input type="radio" name ='Q1' value="reponse2">
-  <label for="r"></label> r2 <br>
+  <input type="checkbox" name ='Q1[]' value="nok">
+  <label for="r"></label> Tera Verto <br>
 
-  <input type="radio" name ='Q1' value="reponse3">
-  <label for="r"></label> r3 <br>
+  <input type="checkbox" name ='Q1[]' value="nok">
+  <label for="r"></label>Mega Vetro <br>
+
+  <input type="checkbox" name ='Q1[]' value="nok">
+  <label for="r"></label>Vade Retro<br>
 
 
-  <label for="question">Question 2 ? </label> <br>
+  <label for="question">Sur quoi Neville Londubat transplante accidentellement ses oreilles ? </label> <br>
 
-<input type="radio" name ='Q2' value="reponse1">
-<label for="r"></label> r1 <br>
+<input type="checkbox" name ='Q2[]' value="ok">
+<label for="r"></label> un cactus <br>
 
-<input type="radio" name ='Q2' value="reponse2">
-<label for="r"></label> r2 <br>
+<input type="checkbox" name ='Q2[]' value="nok">
+<label for="r"></label> un arbuste <br>
 
-<input type="radio" name ='Q2' value="reponse3">
-<label for="r"></label> r3 <br>
+<input type="checkbox" name ='Q2[]' value="nok">
+<label for="r"></label> une tentacula vénéneuse <br>
+
+<input type="checkbox" name ='Q2[]' value="nok">
+<label for="r"></label> un pot <br>
 
 <input type="hidden" name = 'nom' value = "<?php echo $nom ?>">
 <input type="hidden" name = 'mail' value = "<?php echo $mail ?>">
